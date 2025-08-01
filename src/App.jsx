@@ -95,7 +95,7 @@ const App = () => {
   // State for journey items visibility
   const [visibleItems, setVisibleItems] = useState(new Set());
   
-  // Add this useEffect for staggered animations in journey section
+  //   useEffect for staggered animations in journey section
   useEffect(() => {
     if (journeyVisible) {
       journey.forEach((_, index) => {
@@ -627,8 +627,7 @@ const App = () => {
 
 
 
-  const ContactModal = () => {
-  const [showModal, setShowModal] = useState(true);
+const ContactModal = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -638,20 +637,20 @@ const App = () => {
     budget: '',
     message: ''
   });
-
+  
   const contactLinks = [
     { label: 'Email', icon: Mail, href: 'mailto:cokorie158@gmail.com' },
-    { label: 'WhatsApp', icon: MessageCircle, href: 'https://wa.me/1234567890' },
-    { label: 'Call', icon: Phone, href: 'tel:+1234567890' }
+    { label: 'WhatsApp', icon: MessageCircle, href: 'https://wa.me/07034941078' },
+    { label: 'Call', icon: Phone, href: 'tel:+2347034941078' }
   ];
-
+  
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
-
+  
   const handleSubmit = async () => {
     if (!formData.name || !formData.email || !formData.message) return;
     
@@ -667,6 +666,12 @@ const App = () => {
       if (response.ok) {
         setSubmitSuccess(true);
         setFormData({ name: '', email: '', projectType: '', budget: '', message: '' });
+        
+        // Close modal after success
+        setTimeout(() => {
+          setSubmitSuccess(false);
+          setShowModal(false);
+        }, 1500);
       } else {
         throw new Error('Failed to send message');
       }
@@ -677,23 +682,27 @@ const App = () => {
       const mailtoUrl = `mailto:cokorie158@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.open(mailtoUrl, '_blank');
       setSubmitSuccess(true);
+      
+      // Close modal after success
+      setTimeout(() => {
+        setSubmitSuccess(false);
+        setShowModal(false);
+      }, 1500);
     }
     
     setIsSubmitting(false);
   };
 
-  if (!showModal) return null;
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 bg-black/80 backdrop-blur-sm animate-fadeIn">
-      <div className="relative bg-black/40 backdrop-blur-xl border border-cyan-500/20 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transition-all duration-500 animate-scaleIn">
+    <div className="fixed inset-0 z-50 flex   items-center justify-center p-3 bg-black/80 backdrop-blur-sm animate-fadeIn">
+      <div className="relative  scrollbar-hide bg-black/40 backdrop-blur-xl border border-cyan-500/20 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh]  transition-all duration-500 animate-scaleIn">
         
         {/* Subtle Background Effects */}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-cyan-400/5 rounded-2xl"></div>
-        <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-24 h-24 bg-cyan-300/10 rounded-full blur-2xl"></div>
+        <div className="absolute inset-0  bg-gradient-to-br from-cyan-500/5 via-transparent to-cyan-400/5 rounded-2xl"></div>
+        <div className="absolute top-0  right-0 w-32 h-32 bg-cyan-400/10 rounded-full blur-3xl"></div>
+        <div className="absolute overflow-hidden bottom-0 left-0 w-24 h-24 bg-cyan-300/10 rounded-full blur-2xl"></div>
         
-        <div className="relative z-10 p-6">
+        <div className=" relative z-10 p-6">
           {/* Compact Header */}
           <div className="flex justify-between items-start mb-6">
             <div>
