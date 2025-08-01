@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
-import {   Mail ,
+import {  
   Code, Briefcase, GraduationCap, Trophy, Palette, Zap, Atom, Rocket, Wind, Hash, Triangle, Github, Mail,
   MessageCircle, Linkedin, Music, Search, Smartphone, Monitor, Globe,
   Clock, Award, Target, Users, Star, CheckCircle, ArrowRight,
