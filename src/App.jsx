@@ -640,7 +640,7 @@ const ContactModal = () => {
   
   const contactLinks = [
     { label: 'Email', icon: Mail, href: 'mailto:cokorie158@gmail.com' },
-    { label: 'WhatsApp', icon: MessageCircle, href: 'https://wa.me/07034941078' },
+    { label: 'WhatsApp', icon: MessageCircle, href: 'https://wa.me/+2347034941078' },
     { label: 'Call', icon: Phone, href: 'tel:+2347034941078' }
   ];
   
@@ -1623,13 +1623,3 @@ const ContactModal = () => {
 };
 
 export default App;
-
-
-
-
-
-
-
-
-
-
